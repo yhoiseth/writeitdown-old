@@ -5,4 +5,5 @@ build:
                 command: meteor
                 background: true
     tests:
-        - chimp --chai
+        override:
+            - 'chimp --chai'
