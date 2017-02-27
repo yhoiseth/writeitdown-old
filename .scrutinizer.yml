@@ -4,6 +4,9 @@ build:
             -
                 command: meteor
                 background: true
+            -
+                command: npm install -g chimp
+                background: false
     tests:
         override:
             - 'chimp --chai'
