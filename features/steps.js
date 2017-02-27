@@ -1,3 +1,5 @@
+/** global: browser */
+
 module.exports = function() {
     this.When(/^I visit the homepage$/, function () {
         browser.url('http://localhost:3000');

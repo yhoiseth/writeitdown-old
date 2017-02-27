@@ -1,0 +1,8 @@
+build:
+    project_setup:
+        before:
+            -
+                command: meteor
+                background: true
+    tests:
+        - chimp --chai
