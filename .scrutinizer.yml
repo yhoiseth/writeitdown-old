@@ -2,6 +2,9 @@ build:
     project_setup:
         before:
             -
+                command: curl https://install.meteor.com/ | sh
+                background: false
+            -
                 command: meteor
                 background: true
             -
