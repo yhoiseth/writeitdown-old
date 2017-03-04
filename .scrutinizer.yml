@@ -8,7 +8,7 @@ build:
                 command: npm install -g chimp
                 background: false
             -
-                command: meteor
+                command: meteor --production
                 background: true
     tests:
         override:
