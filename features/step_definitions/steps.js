@@ -2,6 +2,12 @@
 /** global: server */
 
 let myStepDefinitionsWrapper = function () {
+    this.Before(function () {
+        server.execute(function () {
+            Package['xolvio:cleaner'].resetDatabase();
+        });
+    });
+
     this.When(/^I visit the homepage$/, function () {
         browser.url('http://localhost:3000');
     });
@@ -14,29 +20,19 @@ let myStepDefinitionsWrapper = function () {
     this.Given(/^I already have a user account$/, function () {
         let username = 'testuser';
 
-        let getUserByUsername = server.execute(function(username) {
+        let user = server.execute(function(username) {
             const {Accounts} = require('meteor/accounts-base');
 
             let user = Accounts.findUserByUsername(username);
 
+            if (!user) {
+                user = Accounts.createUser({'username': username});
+            }
+
             return user;
         }, username);
 
-        let user = getUserByUsername;
-
-        if (!user) {
-            server.execute(function(username) {
-                const {Accounts} = require('meteor/accounts-base');
-
-                Accounts.createUser({'username': username});
-            }, username);
-        }
-
-        setTimeout(function() {
-
-        }, 10000);
-
-        expect(getUserByUsername).not.to.equal(undefined);
+        expect(user).not.to.equal(undefined);
     });
 };
 
