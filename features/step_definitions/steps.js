@@ -1,5 +1,6 @@
 /** global: browser */
 /** global: server */
+/** global: Package */
 
 let myStepDefinitionsWrapper = function () {
     this.Before(function () {
