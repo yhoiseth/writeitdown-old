@@ -9,7 +9,7 @@ build:
                 background: false
             -
                 command: meteor
-                background: false
+                background: true
     tests:
         override:
             - 'chimp --chai --ddp=http://localhost:3000'
