@@ -8,6 +8,9 @@ build:
                 command: npm install -g chimp
                 background: false
             -
+                command: meteor npm install --save bcrypt
+                background: false
+            -
                 command: meteor
                 background: true
     tests:
