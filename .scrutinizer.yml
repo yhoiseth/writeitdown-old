@@ -12,4 +12,4 @@ build:
                 background: false
     tests:
         override:
-            - 'chimp --chai'
+            - 'chimp --chai --ddp=http://localhost:3000'
