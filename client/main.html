@@ -3,9 +3,13 @@
 </head>
 
 <body>
-<form id="loginForm">
-    <input id="usernameInput">
-    <input id="passwordInput">
-</form>
-
+{{>hello}}
 </body>
+
+<template name="hello">
+    <form id="loginForm">
+        <input id="usernameInput">
+        <input id="passwordInput">
+        <input type="submit">
+    </form>
+</template>

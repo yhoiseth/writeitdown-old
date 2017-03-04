@@ -27,7 +27,10 @@ let myStepDefinitionsWrapper = function () {
       let user = Accounts.findUserByUsername(username);
 
       if (!user) {
-        user = Accounts.createUser({'username': username});
+        user = Accounts.createUser({
+          'username': username,
+          'password': 'testpassword'
+        });
       }
 
       return user;
@@ -51,18 +54,32 @@ let myStepDefinitionsWrapper = function () {
     browser.setValue('#usernameInput', 'testuser');
     browser.setValue('#passwordInput', 'testpassword');
     browser.submitForm('#loginForm');
+    browser.pause(5000);
   });
 
   this.Then(/^I should be logged in$/, function () {
-    let user = server.execute(function () {
-        const {Meteor} = require('meteor/meteor');
+    let loggedInUser = server.call('getCurrentUser');
+    // let loggedInUser = server.execute(function () {
+    //     const { Meteor } = require('meteor/meteor');
+    //
+    //     // setTimeout(function () {
+    //     //   console.log('timing out');
+    //     // }, 10000);
+    //
+    //     // let user = Meteor.user();
+    //     let user = server.call;
+    //
+    //     console.log(user);
+    //     console.log(Meteor.users.find().fetch());
+    //
+    //     return user;
+    // });
 
-        let user = Meteor.user();
+    console.log(browser.log('browser'));
 
-        return user;
-    });
 
-    expect(user).not.to.equal(null);
+
+    expect(loggedInUser).not.to.equal(null);
   });
 };
 
