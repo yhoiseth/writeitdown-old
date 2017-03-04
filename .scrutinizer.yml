@@ -5,11 +5,14 @@ build:
                 command: curl https://install.meteor.com/ | sh
                 background: false
             -
-                command: meteor
-                background: true
-            -
                 command: npm install -g chimp
                 background: false
+            -
+                command: meteor npm install --save bcrypt
+                background: false
+            -
+                command: meteor
+                background: true
     tests:
         override:
-            - 'chimp --chai'
+            - 'chimp --chai --ddp=http://localhost:3000'
