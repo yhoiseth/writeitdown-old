@@ -32,6 +32,10 @@ let myStepDefinitionsWrapper = function () {
             }, username);
         }
 
+        setTimeout(function() {
+
+        }, 10000);
+
         expect(getUserByUsername).not.to.equal(undefined);
     });
 };
