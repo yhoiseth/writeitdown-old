@@ -1,4 +1,5 @@
 /** global: browser */
+/** global: server */
 
 let myStepDefinitionsWrapper = function () {
     this.When(/^I visit the homepage$/, function () {
