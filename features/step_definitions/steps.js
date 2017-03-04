@@ -58,28 +58,7 @@ let myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should be logged in$/, function () {
-    let loggedInUser = server.call('getCurrentUser');
-    // let loggedInUser = server.execute(function () {
-    //     const { Meteor } = require('meteor/meteor');
-    //
-    //     // setTimeout(function () {
-    //     //   console.log('timing out');
-    //     // }, 10000);
-    //
-    //     // let user = Meteor.user();
-    //     let user = server.call;
-    //
-    //     console.log(user);
-    //     console.log(Meteor.users.find().fetch());
-    //
-    //     return user;
-    // });
-
-    console.log(browser.log('browser'));
-
-
-
-    expect(loggedInUser).not.to.equal(null);
+    browser.waitForExist('#profileLink');
   });
 };
 

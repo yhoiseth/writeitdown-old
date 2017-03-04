@@ -7,9 +7,15 @@
 </body>
 
 <template name="hello">
-    <form id="loginForm">
-        <input id="usernameInput">
-        <input id="passwordInput">
-        <input type="submit">
-    </form>
+    {{#if currentUser}}
+        <a href="/profile" id="profileLink">
+            {{currentUser.username}}
+        </a>
+    {{else}}
+        <form id="loginForm">
+            <input id="usernameInput">
+            <input id="passwordInput">
+            <input type="submit">
+        </form>
+    {{/if}}
 </template>
