@@ -5,3 +5,4 @@ Feature: Login
 
   Scenario: User already exists
     Given I already have a user account
+    And I am not logged in

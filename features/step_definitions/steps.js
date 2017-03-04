@@ -35,6 +35,16 @@ let myStepDefinitionsWrapper = function () {
 
         expect(user).not.to.equal(undefined);
     });
+
+    this.Given(/^I am not logged in$/, function () {
+        let user = server.execute(function () {
+            const {Meteor} = require('meteor/meteor');
+
+            return Meteor.user();
+        });
+
+        expect(user).to.equal(null);
+    });
 };
 
 module.exports = myStepDefinitionsWrapper;
